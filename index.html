@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hill Valley's Clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: rgb(240, 240, 240);
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .dial {
+            background: rgb(32, 32, 32);
+        }
+        .dial,
+        .hour-hand,
+        .minute-hand {
+            position: absolute;
+            box-shadow: 0 0 1rem rgb(32, 32, 56, 0.64);
+            border-radius: 50%;
+            height: 24rem;
+        }
+        .dial img,
+        .hour-hand img,
+        .minute-hand img {
+            height: 100%;
+        }
+        .hour-hand img,
+        .minute-hand img {
+            transition: 1.6s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dial">
+            <img id="dial" src="hill-valleys-clock-dial.svg" alt="Hill Valley's Clock dial">
+        </div>
+        <div class="hour-hand">
+            <img id="hour-hand" src="hill-valleys-clock-hour-hand.svg" alt="Hill Valley's Clock Hour Hand">
+        </div>
+        <div class="minute-hand">
+            <img id="minute-hand" src="hill-valleys-clock-minute-hand.svg" alt="Hill Valley's Clock Minute Hand">
+        </div>
+        <!-- <audio id="minute-hand-sound" src="minute-hand-sound.mp3"></audio> -->
+    </div>
+    <script>
+        function updateClock() {
+            let date = new Date();
+            let hour = date.getHours();
+            let minute = date.getMinutes();
+
+            if (hour >= 12) {
+                hour -= 12;
+            }
+
+            let hourCurrentDeg = (hour * 30) + (minute * 0.5);
+            let minuteCurrentDeg = minute * 6;
+
+            if (hourCurrentDeg <= 180) {
+                document.querySelector("#hour-hand").style.transform = `rotate(${hourCurrentDeg}deg)`;
+            } else {
+                document.querySelector("#hour-hand").style.transform = `rotate(${hourCurrentDeg - 360}deg)`;
+            }
+
+            if (minuteCurrentDeg <= 180) {
+                document.querySelector("#minute-hand").style.transform = `rotate(${minuteCurrentDeg}deg)`;
+            } else {
+                document.querySelector("#minute-hand").style.transform = `rotate(${minuteCurrentDeg - 360}deg)`;
+            }
+        }
+
+        setInterval(updateClock, 1000);
+
+        const transition = document.querySelector("#minute-hand");
+
+        transition.addEventListener("transitionstart", function() {
+            // document.querySelector("#minute-hand-sound").play();
+            console.log("Minute hand sound");
+        })
+    </script>
+</body>
+</html>
