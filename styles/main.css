@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(240, 240, 240);
+}
+
+.container {
+    position: relative;
+
+    display: flex;
+
+    width: 100vw;
+    height: 100vh;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.dial {
+    background: rgb(32, 32, 32);
+}
+
+.dial,
+.hour-hand,
+.minute-hand {
+    position: absolute;
+
+    height: 24rem;
+
+    border-radius: 50%;
+    box-shadow: 0 0 1rem rgb(32, 32, 56, .64);
+}
+
+.dial img,
+.hour-hand img,
+.minute-hand img {
+    height: 100%;
+}
+
+.hour-hand img,
+.minute-hand img {
+    transition: 1.6s;
+}

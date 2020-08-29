@@ -3,45 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hill Valley's Clock</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: rgb(240, 240, 240);
-        }
-        .container {
-            position: relative;
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .dial {
-            background: rgb(32, 32, 32);
-        }
-        .dial,
-        .hour-hand,
-        .minute-hand {
-            position: absolute;
-            box-shadow: 0 0 1rem rgb(32, 32, 56, 0.64);
-            border-radius: 50%;
-            height: 24rem;
-        }
-        .dial img,
-        .hour-hand img,
-        .minute-hand img {
-            height: 100%;
-        }
-        .hour-hand img,
-        .minute-hand img {
-            transition: 1.6s;
-        }
-    </style>
+    <title>Hill Valley's clock</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <div class="container">
