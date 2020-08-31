@@ -1,33 +1,78 @@
-function updateClock() {
-    let date = new Date();
-    let hour = date.getHours();
-    let minute = date.getMinutes();
+// Global variables
+
+const hourHand = document.querySelector("#hour-hand"),
+    minuteHand = document.querySelector("#minute-hand");
+
+// Functions
+
+function getCurrentHour() {
+    let date = new Date(),
+        hour = date.getHours();
 
     if (hour >= 12) {
         hour -= 12;
     }
 
-    let hourCurrentDeg = (hour * 30) + (minute * 0.5);
-    let minuteCurrentDeg = minute * 6;
+    return hour;
+}
 
-    if (hourCurrentDeg <= 180) {
-        document.querySelector("#hour-hand").style.transform = `rotate(${hourCurrentDeg}deg)`;
-    } else {
-        document.querySelector("#hour-hand").style.transform = `rotate(${hourCurrentDeg - 360}deg)`;
-    }
+function getCurrentMinute() {
+    let date = new Date(),
+        minute = date.getMinutes();
 
-    if (minuteCurrentDeg <= 180) {
-        document.querySelector("#minute-hand").style.transform = `rotate(${minuteCurrentDeg}deg)`;
+    return minute;
+}
+
+function getHourHandRotationDegree() {
+    let hourHandRotationDegree = (getCurrentHour() * 30) + (getCurrentMinute() * 0.5);
+
+    return hourHandRotationDegree;
+}
+
+function getMinuteHandRotationDegree() {
+    let minuteHandRotationDegree = getCurrentMinute() * 6;
+
+    return minuteHandRotationDegree;
+}
+
+// param[in] i: clock hand rotation degree
+// param[in] j: clock hand HTML element
+function setTime(i, j) {
+    let clockHandRotationDegree = i;
+
+    if (clockHandRotationDegree <= 180) {
+        j.style.transition = "800ms";
+        j.style.transform = `rotate(${clockHandRotationDegree}deg)`;
     } else {
-        document.querySelector("#minute-hand").style.transform = `rotate(${minuteCurrentDeg - 360}deg)`;
+        j.style.transition = "800ms";
+        j.style.transform = `rotate(${clockHandRotationDegree - 360}deg)`;
     }
 }
 
-setInterval(updateClock, 1000);
+// param[in] j: clock hand HTML element
+function resetRotationDegree(j) {
+    j.style.transition = "";
+    j.style.transform = "rotate(-180deg)";
+}
 
-const transition = document.querySelector("#minute-hand");
+// toDo: simplify function calls
 
-transition.addEventListener("transitionstart", function() {
-    // document.querySelector("#minute-hand-sound").play();
-    console.log("Hill Valley's clock minute hand sound");
-})
+let setClock = function setClock() {
+    if (getHourHandRotationDegree() == 180 && hourHand.style.transform == "rotate(180deg)") {
+        resetRotationDegree(hourHand);
+    } else if (getHourHandRotationDegree() == 180 && hourHand.style.transform == "rotate(-180deg)") {
+        resetRotationDegree(hourHand);
+    } else {
+        setTime(getHourHandRotationDegree(), hourHand);
+    }
+
+    if (getMinuteHandRotationDegree() == 180 && minuteHand.style.transform == "rotate(180deg)") {
+        resetRotationDegree(minuteHand);
+    } else if (getMinuteHandRotationDegree() == 180 && minuteHand.style.transform == "rotate(-180deg)") {
+        resetRotationDegree(minuteHand);
+    } else {
+        setTime(getMinuteHandRotationDegree(), minuteHand);
+    }
+}
+
+setInterval(setClock, 1000);

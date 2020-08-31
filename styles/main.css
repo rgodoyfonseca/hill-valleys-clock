@@ -40,8 +40,3 @@ body {
 .minute-hand img {
     height: 100%;
 }
-
-.hour-hand img,
-.minute-hand img {
-    transition: 1.6s;
-}
