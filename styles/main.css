@@ -24,6 +24,8 @@ body {
 
     display: flex;
 
+    padding-top: 4.5rem;
+
     align-items: center;
     justify-content: space-around;
 }
@@ -37,7 +39,6 @@ body {
 .hour-hand,
 .minute-hand {
     height: 24.25rem;
-    margin-top: 4.5rem;
 
     border-radius: 50%;
 }
