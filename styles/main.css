@@ -9,15 +9,23 @@ body {
 }
 
 .container {
-    position: relative;
-
     display: flex;
+    flex-direction: column;
 
     width: 100vw;
     height: 100vh;
 
     align-items: center;
     justify-content: center;
+}
+
+.clock {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-around;
 }
 
 .dial {
@@ -28,15 +36,39 @@ body {
 .dial,
 .hour-hand,
 .minute-hand {
-    position: absolute;
-
     height: 24.25rem;
+    margin-top: 4.5rem;
 
     border-radius: 50%;
+}
+
+.hour-hand,
+.minute-hand {
+    position: absolute;
 }
 
 .dial img,
 .hour-hand img,
 .minute-hand img {
     height: 100%;
+}
+
+.set-an-alarm {
+    font: 300 1.25rem 'Source Sans Pro', sans-serif;
+
+    display: flex;
+
+    width: 10rem;
+    height: 3.5rem;
+    margin-top: 4.5rem;
+
+    text-decoration: none;
+
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    background: rgb(10, 175, 245);
+    box-shadow: 0 4px 24px rgba(35, 35, 40, .16);
+
+    align-items: center;
+    justify-content: center;
 }
