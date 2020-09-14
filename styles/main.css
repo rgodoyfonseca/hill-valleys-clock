@@ -24,21 +24,19 @@ body {
 
     display: flex;
 
-    padding-top: 4.5rem;
-
     align-items: center;
     justify-content: space-around;
 }
 
 .dial {
     background: rgb(255, 255, 255);
-    box-shadow: 0 0 32px 16px rgba(35, 35, 40, .24);
+    box-shadow: 0 0 20px 10px rgba(35, 35, 40, .24);
 }
 
 .dial,
 .hour-hand,
 .minute-hand {
-    height: 24.25rem;
+    height: 16rem;
 
     border-radius: 50%;
 }
@@ -63,6 +61,7 @@ body {
     height: 3.5rem;
     margin-top: 4.5rem;
 
+    transition: 400ms;
     text-decoration: none;
 
     color: rgb(255, 255, 255);
@@ -72,4 +71,49 @@ body {
 
     align-items: center;
     justify-content: center;
+}
+
+.set-an-alarm:hover {
+    background: rgb(15, 160, 220);
+}
+
+@media (min-width: 360px) {
+    .dial {
+        background: rgb(255, 255, 255);
+        box-shadow: 0 0 24px 12px rgba(35, 35, 40, .24);
+    }
+
+    .dial,
+    .hour-hand,
+    .minute-hand {
+        height: 18rem;
+
+        border-radius: 50%;
+    }
+}
+
+@media (min-width: 500px) {
+    .clock {
+        position: relative;
+
+        display: flex;
+
+        padding-top: 4.5rem;
+
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .dial {
+        background: rgb(255, 255, 255);
+        box-shadow: 0 0 32px 16px rgba(35, 35, 40, .24);
+    }
+
+    .dial,
+    .hour-hand,
+    .minute-hand {
+        height: 24.25rem;
+
+        border-radius: 50%;
+    }
 }
