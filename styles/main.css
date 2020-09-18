@@ -1,12 +1,16 @@
-* {
+*
+{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html,
 body {
     overflow-x: hidden;
+}
 
+body {
     background: rgb(248, 249, 250);
 }
 
