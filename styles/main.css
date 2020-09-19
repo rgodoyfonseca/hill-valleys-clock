@@ -1,5 +1,4 @@
-*
-{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -67,10 +66,12 @@ body {
     height: 3.5rem;
     margin-top: 4.5rem;
 
+    cursor: pointer;
     transition: 400ms;
     text-decoration: none;
 
     color: rgb(255, 255, 255);
+    border: 0;
     border-radius: 4px;
     background: rgb(10, 175, 245);
     box-shadow: 0 4px 24px rgba(35, 35, 40, .16);
