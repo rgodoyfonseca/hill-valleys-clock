@@ -57,7 +57,7 @@ body {
     height: 100%;
 }
 
-.set-an-alarm {
+.button-set-an-alarm {
     font: 300 1.25rem 'Source Sans Pro', sans-serif;
 
     display: flex;
@@ -72,7 +72,7 @@ body {
 
     color: rgb(255, 255, 255);
     border: 0;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     background: rgb(10, 175, 245);
     box-shadow: 0 4px 24px rgba(35, 35, 40, .16);
 
@@ -80,7 +80,7 @@ body {
     justify-content: center;
 }
 
-.set-an-alarm:hover {
+.button-set-an-alarm:hover {
     background: rgb(15, 160, 220);
 }
 
