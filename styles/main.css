@@ -14,14 +14,13 @@ body {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
+    display: block;
 
     width: 100vw;
     height: 100vh;
+    padding-top: calc(50vh - 8rem - 2.25rem - 1.75rem);
 
-    align-items: center;
-    justify-content: center;
+    transition: 800ms;
 }
 
 .clock {
@@ -34,6 +33,8 @@ body {
 }
 
 .dial {
+    transition: 800ms;
+
     background: rgb(255, 255, 255);
     box-shadow: 0 0 20px 10px rgba(35, 35, 40, .24);
 }
@@ -57,6 +58,165 @@ body {
     height: 100%;
 }
 
+/*
+    begin-set-an-alarm
+*/
+
+.set-an-alarm {
+    display: none;
+
+    width: 100%;
+    margin-top: -6rem;
+    padding: 9.125rem 2rem 2rem 2rem;
+
+    border-radius: .5rem .5rem 0 0;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 40px 10px rgba(35, 35, 40, .08);
+}
+
+.set-an-alarm label {
+    font: 300 .875rem 'Source Sans Pro', sans-serif;
+
+    display: inline-block;
+
+    margin-bottom: .25rem;
+
+    color: rgb(35, 35, 40);
+}
+
+.input-label input,
+.select-color select,
+.input-hour input,
+.input-minute input {
+    font: 300 1.125rem 'Source Sans Pro', sans-serif;
+
+    display: flex;
+
+    width: 100%;
+    height: 3.125rem;
+    padding: 0 1rem;
+
+    cursor: pointer;
+
+    color: rgb(35, 35, 40);
+    border: 1px solid rgb(175, 180, 185);
+    border-radius: .25rem;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.input-label input,
+.select-color select,
+.input-hour input {
+    margin-bottom: 1.125rem;
+}
+
+.input-minute input {
+    margin-bottom: 0;
+}
+
+.input-label input:focus,
+.select-color select:focus,
+.input-hour input:focus,
+.input-minute input:focus {
+    border-color: rgb(10, 175, 245);
+    outline: 0;
+    box-shadow: 0 4px 24px rgba(35, 35, 40, .16);
+}
+
+.button-ante-and-post-meridiem {
+    display: flex;
+}
+
+.button-ante-meridiem {
+    color: rgb(255, 255, 255);
+    border: 0;
+    border-radius: .25rem 0 0 .25rem;
+    background: rgb(10, 175, 245);
+}
+
+.button-post-meridiem {
+    color: rgb(10, 175, 245);
+    border: 1px solid rgb(10, 175, 245);
+    border-radius: 0 .25rem .25rem 0;
+    background: rgb(255, 255, 255);
+}
+
+.button-ante-meridiem,
+.button-post-meridiem {
+    font: 300 1.125rem 'Source Sans Pro', sans-serif;
+
+    display: flex;
+
+    width: 50%;
+    height: 3.125rem;
+    margin-top: 2.5rem;
+
+    cursor: pointer;
+    transition: 400ms;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.button-ante-meridiem:focus,
+.button-post-meridiem:focus {
+    outline: 0;
+}
+
+.button-cancel-set-an-alarm,
+.button-confirm-set-an-alarm {
+    font: 300 1.25rem 'Source Sans Pro', sans-serif;
+
+    display: flex;
+
+    width: 100%;
+    height: 3.5rem;
+
+    cursor: pointer;
+    transition: 400ms;
+
+    color: rgb(255, 255, 255);
+    border: 0;
+    border-radius: .25rem;
+    box-shadow: 0 4px 24px rgba(35, 35, 40, .16);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.button-cancel-set-an-alarm {
+    margin-top: 2.5rem;
+
+    background: rgb(205, 210, 215);
+}
+
+.button-cancel-set-an-alarm:hover {
+    background: rgb(185, 190, 195);
+}
+
+.button-confirm-set-an-alarm {
+    margin-top: 2.125rem;
+
+    background: rgb(10, 175, 245);
+}
+
+.button-confirm-set-an-alarm:hover {
+    background: rgb(15, 160, 220);
+}
+
+.button-ante-meridiem:focus,
+.button-post-meridiem:focus,
+.button-cancel-set-an-alarm,
+.button-confirm-set-an-alarm {
+    outline: 0;
+}
+
+/*
+    end-set-an-alarm
+*/
+
 .button-set-an-alarm {
     font: 300 1.25rem 'Source Sans Pro', sans-serif;
 
@@ -65,6 +225,7 @@ body {
     width: 10rem;
     height: 3.5rem;
     margin-top: 4.5rem;
+    margin-left: calc(50% - 5rem);
 
     cursor: pointer;
     transition: 400ms;
@@ -72,7 +233,7 @@ body {
 
     color: rgb(255, 255, 255);
     border: 0;
-    border-radius: 0.25rem;
+    border-radius: .25rem;
     background: rgb(10, 175, 245);
     box-shadow: 0 4px 24px rgba(35, 35, 40, .16);
 
@@ -80,11 +241,19 @@ body {
     justify-content: center;
 }
 
+.button-set-an-alarm:focus {
+    outline: 0;
+}
+
 .button-set-an-alarm:hover {
     background: rgb(15, 160, 220);
 }
 
 @media (min-width: 360px) {
+    .container {
+        padding-top: calc(50vh - 9rem - 2.25rem - 1.75rem);
+    }
+
     .dial {
         background: rgb(255, 255, 255);
         box-shadow: 0 0 24px 12px rgba(35, 35, 40, .24);
@@ -97,15 +266,34 @@ body {
 
         border-radius: 50%;
     }
+
+    /*
+        begin-set-an-alarm
+    */
+
+    .set-an-alarm {
+        margin-top: -6.5rem;
+        padding: 9.625rem 2rem 2rem 2rem;
+
+        box-shadow: 0 0 48px 12px rgba(35, 35, 40, .08);
+    }
+
+    /*
+        end-set-an-alarm
+    */
 }
 
 @media (min-width: 500px) {
+    .container {
+        padding-top: calc(50vh - 12.125rem - 2.25rem - 1.75rem);
+    }
+
     .clock {
         position: relative;
 
         display: flex;
 
-        padding-top: 4.5rem;
+        padding-top: 2.25rem;
 
         align-items: center;
         justify-content: space-around;

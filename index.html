@@ -14,12 +14,52 @@
             <div class="dial">
                 <img id="dial" src="images/hill-valleys-clock-dial.svg" alt="Hill Valley's clock dial">
             </div>
+
             <div class="hour-hand">
                 <img id="hour-hand" src="images/hill-valleys-clock-hour-hand.svg" alt="Hill Valley's clock hour hand">
             </div>
+
             <div class="minute-hand">
                 <img id="minute-hand" src="images/hill-valleys-clock-minute-hand.svg" alt="Hill Valley's clock minute hand">
             </div>
+        </div>
+
+        <div class="set-an-alarm">
+            <div class="input-label">
+                <label for="label">Label</label>
+                <input type="text" name="label" id="label" required>
+            </div>
+
+            <div class="select-color">
+                <label for="color">Color</label>
+                <select name="color" id="color">
+                    <option value="">Color</option>
+                    <option value="1">Red</option>
+                    <option value="2">Orange</option>
+                    <option value="3">Yellow</option>
+                    <option value="4">Green</option>
+                    <option value="5">Blue</option>
+                </select>
+            </div>
+
+            <div class="input-hour">
+                <label for="hour">Hour</label>
+                <input type="number" name="hour" id="hour" min="1" max="12" required>
+            </div>
+
+            <div class="input-minute">
+                <label for="minute">Minute</label>
+                <input type="number" name="minute" id="minute" min="0" max="59" required>
+            </div>
+
+            <div class="button-ante-and-post-meridiem">
+                <button type="button" class="button-ante-meridiem" id="button-ante-meridiem">AM</button>
+                <button type="button" class="button-post-meridiem" id="button-post-meridiem">PM</button>
+            </div>
+
+            <button type="button" class="button-cancel-set-an-alarm" id="button-cancel-set-an-alarm">Cancel</button>
+
+            <button type="button" class="button-confirm-set-an-alarm" id="button-confirm-set-an-alarm">Confirm</button>
         </div>
         <button type="button" class="button-set-an-alarm" id="button-set-an-alarm">Set an Alarm</a>
     </div>
