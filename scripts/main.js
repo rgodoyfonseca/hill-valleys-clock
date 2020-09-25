@@ -1,7 +1,7 @@
 // Global variables
 
-const hourHand = document.querySelector("#hour-hand"),
-    minuteHand = document.querySelector("#minute-hand");
+const hourHand = document.querySelector(".hour-hand"),
+    minuteHand = document.querySelector(".minute-hand");
 
 // Functions
 
