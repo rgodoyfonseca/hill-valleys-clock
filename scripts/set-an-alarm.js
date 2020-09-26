@@ -7,6 +7,10 @@ const windowWidth = window.innerWidth,
     // hourHand = document.querySelector(".hour-hand"), /* already been declared */
     // minuteHand = document.querySelector(".minute-hand"), /* already been declared */
     setAnAlarm = document.querySelector(".set-an-alarm"),
+    label = document.querySelector("#label"),
+    color = document.querySelector("#color"),
+    hour = document.querySelector("#hour"),
+    minute = document.querySelector("#minute"),
     buttonCancelSetAnAlarm =  document.querySelector(".button-cancel-set-an-alarm"),
     buttonSetAnAlarm = document.querySelector(".button-set-an-alarm");
 
@@ -14,11 +18,11 @@ const windowWidth = window.innerWidth,
 
 buttonCancelSetAnAlarm.addEventListener("click", cancelAlarmSettings);
 
-buttonSetAnAlarm.addEventListener("click", alarmSettings);
+buttonSetAnAlarm.addEventListener("click", openAlarmSettings);
 
 // Functions
 
-function cancelAlarmSettings() {
+function closeAlarmSettings() {
     if (windowWidth > 0 && windowWidth <= 360) {
         container.style.paddingTop = "calc(50vh - 8rem - 2.25rem - 1.75rem)";
         dial.style.width = "16rem";
@@ -56,7 +60,19 @@ function cancelAlarmSettings() {
     }
 }
 
-function alarmSettings() {
+function clearAlarmSetting() {
+    label.value = "";
+    color.value = "";
+    hour.value = "";
+    minute.value = "";
+}
+
+function cancelAlarmSettings() {
+    closeAlarmSettings();
+    clearAlarmSetting();
+}
+
+function openAlarmSettings() {
     if (windowWidth > 0 && windowWidth <= 360) {
         container.style.paddingTop = "3.5rem";
         dial.style.width = "12rem";
