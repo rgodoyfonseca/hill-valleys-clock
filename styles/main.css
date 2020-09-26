@@ -42,6 +42,7 @@ body {
 .dial,
 .hour-hand,
 .minute-hand {
+    width: 16rem;
     height: 16rem;
 
     border-radius: 50%;
@@ -262,6 +263,7 @@ body {
     .dial,
     .hour-hand,
     .minute-hand {
+        width: 18rem;
         height: 18rem;
 
         border-radius: 50%;
@@ -307,6 +309,7 @@ body {
     .dial,
     .hour-hand,
     .minute-hand {
+        width: 24.25rem;
         height: 24.25rem;
 
         border-radius: 50%;
