@@ -11,16 +11,78 @@ const windowWidth = window.innerWidth,
     color = document.querySelector("#color"),
     hour = document.querySelector("#hour"),
     minute = document.querySelector("#minute"),
+    buttonAnteMeridiem = document.querySelector(".button-ante-meridiem"),
+    buttonPostMeridiem = document.querySelector(".button-post-meridiem"),
     buttonCancelSetAnAlarm =  document.querySelector(".button-cancel-set-an-alarm"),
     buttonSetAnAlarm = document.querySelector(".button-set-an-alarm");
 
 // Event listeners
 
-buttonCancelSetAnAlarm.addEventListener("click", cancelAlarmSettings);
+window.addEventListener("load", ckeckAnteMeridiem);
+
+buttonAnteMeridiem.addEventListener("click", ckeckAnteMeridiem);
+
+buttonPostMeridiem.addEventListener("click", ckeckPostMeridiem);
 
 buttonSetAnAlarm.addEventListener("click", openAlarmSettings);
 
+buttonCancelSetAnAlarm.addEventListener("click", cancelAlarmSettings);
+
 // Functions
+
+function ckeckAnteMeridiem() {
+    buttonAnteMeridiem.classList.add("button-meridiem-checked");
+
+    if (buttonPostMeridiem.className == "button-post-meridiem button-meridiem-checked") {
+        buttonPostMeridiem.classList.remove("button-meridiem-checked");
+    }
+}
+
+function ckeckPostMeridiem() {
+    buttonPostMeridiem.classList.add("button-meridiem-checked");
+
+    if (buttonAnteMeridiem.className == "button-ante-meridiem button-meridiem-checked") {
+        buttonAnteMeridiem.classList.remove("button-meridiem-checked");
+    }
+}
+
+function openAlarmSettings() {
+    if (windowWidth > 0 && windowWidth <= 360) {
+        container.style.paddingTop = "3.5rem";
+        dial.style.width = "12rem";
+        dial.style.height = "12rem";
+        dial.style.boxShadow = "0 0 40px 10px rgba(35, 35, 40, .16)";
+        hourHand.style.width = "12rem";
+        hourHand.style.height = "12rem";
+        minuteHand.style.width = "12rem";
+        minuteHand.style.height = "12rem";
+        setAnAlarm.style.display = "block";
+        buttonSetAnAlarm.style.display = "none";
+    } else if (windowWidth > 360 && windowWidth < 500) {
+        container.style.paddingTop = "3.5rem";
+        dial.style.width = "13rem";
+        dial.style.height = "13rem";
+        dial.style.boxShadow = "0 0 48px 12px rgba(35, 35, 40, .16)";
+        hourHand.style.width = "13rem";
+        hourHand.style.height = "13rem";
+        minuteHand.style.width = "13rem";
+        minuteHand.style.height = "13rem";
+        setAnAlarm.style.display = "block";
+        buttonSetAnAlarm.style.display = "none";
+    } else if (windowWidth >= 500) {
+        container.style.paddingTop = "3.5rem";
+        clock.style.paddingTop = "0";
+        dial.style.width = "18rem";
+        dial.style.height = "18rem";
+        dial.style.boxShadow = "0 0 64px 16px rgba(35, 35, 40, .16)";
+        hourHand.style.width = "18rem";
+        hourHand.style.height = "18rem";
+        minuteHand.style.width = "18rem";
+        minuteHand.style.height = "18rem";
+        setAnAlarm.style.display = "grid";
+        buttonSetAnAlarm.style.display = "none";
+    }
+}
 
 function closeAlarmSettings() {
     if (windowWidth > 0 && windowWidth <= 360) {
@@ -68,44 +130,7 @@ function clearAlarmSetting() {
 }
 
 function cancelAlarmSettings() {
+    ckeckAnteMeridiem();
     closeAlarmSettings();
     clearAlarmSetting();
-}
-
-function openAlarmSettings() {
-    if (windowWidth > 0 && windowWidth <= 360) {
-        container.style.paddingTop = "3.5rem";
-        dial.style.width = "12rem";
-        dial.style.height = "12rem";
-        dial.style.boxShadow = "0 0 40px 10px rgba(35, 35, 40, .16)";
-        hourHand.style.width = "12rem";
-        hourHand.style.height = "12rem";
-        minuteHand.style.width = "12rem";
-        minuteHand.style.height = "12rem";
-        setAnAlarm.style.display = "block";
-        buttonSetAnAlarm.style.display = "none";
-    } else if (windowWidth > 360 && windowWidth < 500) {
-        container.style.paddingTop = "3.5rem";
-        dial.style.width = "13rem";
-        dial.style.height = "13rem";
-        dial.style.boxShadow = "0 0 48px 12px rgba(35, 35, 40, .16)";
-        hourHand.style.width = "13rem";
-        hourHand.style.height = "13rem";
-        minuteHand.style.width = "13rem";
-        minuteHand.style.height = "13rem";
-        setAnAlarm.style.display = "block";
-        buttonSetAnAlarm.style.display = "none";
-    } else if (windowWidth >= 500) {
-        container.style.paddingTop = "3.5rem";
-        clock.style.paddingTop = "0";
-        dial.style.width = "18rem";
-        dial.style.height = "18rem";
-        dial.style.boxShadow = "0 0 64px 16px rgba(35, 35, 40, .16)";
-        hourHand.style.width = "18rem";
-        hourHand.style.height = "18rem";
-        minuteHand.style.width = "18rem";
-        minuteHand.style.height = "18rem";
-        setAnAlarm.style.display = "grid";
-        buttonSetAnAlarm.style.display = "none";
-    }
 }
