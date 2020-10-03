@@ -1,3 +1,30 @@
+:root {
+    /* Color: background */
+    --color-brackground-body: rgb(248, 249, 250);
+    --color-brackground-dial: rgb(255, 255, 255);
+    --color-background-set-an-alarm: rgb(255, 255, 255);
+
+    /* Color: text */
+    --color-text-button-major-and-minor: rgb(255, 255, 255);
+    --color-text-label: rgb(35, 35, 40);
+    --color-text-input: rgb(35, 35, 40);
+    --color-text-meridiem-uncheck: rgb(10, 175, 245);
+    --color-text-meridiem-check: rgb(255, 255, 255);
+
+    /* Color: button */
+    --color-button-major: rgb(10, 175, 245);
+    --color-button-major-dark: rgb(15, 160, 220);
+    --color-button-minor: rgb(205, 210, 215);
+    --color-button-minor-dark: rgb(185, 190, 195);
+    --color-button-meridiem-uncheck: rgb(255, 255, 255);
+    --color-button-meridiem-check: rgb(10, 175, 245);
+    --color-button-meridiem-border-uncheck: rgb(10, 175, 245);
+
+    /* Color: input */
+    --color-input-border-inactive: rgb(175, 180, 185);
+    --color-input-border-active: rgb(10, 175, 245);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -10,7 +37,7 @@ body {
 }
 
 body {
-    background: rgb(248, 249, 250);
+    background: var(--color-brackground-body);
 }
 
 .container {
@@ -33,7 +60,7 @@ body {
 .dial {
     transition: 800ms;
 
-    background: rgb(255, 255, 255);
+    background: var(--color-brackground-dial);
     box-shadow: 0 0 20px 10px rgba(35, 35, 40, .24);
 }
 
@@ -69,7 +96,7 @@ body {
     padding: 9.125rem 2rem 2rem 2rem;
 
     border-radius: .5rem .5rem 0 0;
-    background: rgb(255, 255, 255);
+    background: var(--color-background-set-an-alarm);
     box-shadow: 0 0 40px 10px rgba(35, 35, 40, .08);
 }
 
@@ -80,7 +107,7 @@ body {
 
     margin-bottom: .25rem;
 
-    color: rgb(35, 35, 40);
+    color: var(--color-text-label);
 }
 
 .input-label input,
@@ -97,8 +124,8 @@ body {
 
     cursor: pointer;
 
-    color: rgb(35, 35, 40);
-    border: 1px solid rgb(175, 180, 185);
+    color: var(--color-text-input);
+    border: 1px solid var(--color-input-border-inactive);
     border-radius: .25rem;
 
     justify-content: center;
@@ -119,7 +146,7 @@ body {
 .select-color select:focus,
 .input-hour input:focus,
 .input-minute input:focus {
-    border-color: rgb(10, 175, 245);
+    border-color: var(--color-input-border-active);
     outline: 0;
     box-shadow: 0 4px 24px rgba(35, 35, 40, .16);
 }
@@ -141,9 +168,9 @@ body {
     cursor: pointer;
     transition: 400ms;
 
-    color: rgb(10, 175, 245);
-    border: 1px solid rgb(10, 175, 245);
-    background: rgb(255, 255, 255);
+    color: var(--color-text-meridiem-uncheck);
+    border: 1px solid var(--color-button-meridiem-border-uncheck);
+    background: var(--color-button-meridiem-uncheck);
 
     justify-content: center;
     align-items: center;
@@ -160,8 +187,8 @@ body {
 }
 
 .button-meridiem-checked {
-    color: rgb(255, 255, 255);
-    background: rgb(10, 175, 245);
+    color: var(--color-text-meridiem-check);
+    background: var(--color-button-meridiem-check);
 }
 
 .button-ante-meridiem:focus,
@@ -181,7 +208,7 @@ body {
     cursor: pointer;
     transition: 400ms;
 
-    color: rgb(255, 255, 255);
+    color: var(--color-text-button-major-and-minor);
     border: 0;
     border-radius: .25rem;
     box-shadow: 0 4px 24px rgba(35, 35, 40, .16);
@@ -193,21 +220,21 @@ body {
 .button-cancel-set-an-alarm {
     margin-top: 2.5rem;
 
-    background: rgb(205, 210, 215);
+    background: var(--color-button-minor);
 }
 
 .button-cancel-set-an-alarm:hover {
-    background: rgb(185, 190, 195);
+    background: var(--color-button-minor-dark);
 }
 
 .button-confirm-set-an-alarm {
     margin-top: 2.125rem;
 
-    background: rgb(10, 175, 245);
+    background: var(--color-button-major);
 }
 
 .button-confirm-set-an-alarm:hover {
-    background: rgb(15, 160, 220);
+    background: var(--color-button-major-dark);
 }
 
 .button-ante-meridiem:focus,
@@ -235,10 +262,10 @@ body {
     transition: 400ms;
     text-decoration: none;
 
-    color: rgb(255, 255, 255);
+    color: var(--color-text-button-major-and-minor);
     border: 0;
     border-radius: .25rem;
-    background: rgb(10, 175, 245);
+    background: var(--color-button-major);
     box-shadow: 0 4px 24px rgba(35, 35, 40, .16);
 
     align-items: center;
@@ -250,7 +277,7 @@ body {
 }
 
 .button-set-an-alarm:hover {
-    background: rgb(15, 160, 220);
+    background: var(--color-button-major-dark);
 }
 
 @media (min-width: 360px) {
@@ -259,7 +286,7 @@ body {
     }
 
     .dial {
-        background: rgb(255, 255, 255);
+        background: var(--color-brackground-dial);
         box-shadow: 0 0 24px 12px rgba(35, 35, 40, .24);
     }
 
@@ -305,7 +332,7 @@ body {
     }
 
     .dial {
-        background: rgb(255, 255, 255);
+        background: var(--color-brackground-dial);
         box-shadow: 0 0 32px 16px rgba(35, 35, 40, .24);
     }
 
@@ -335,7 +362,7 @@ body {
         grid-template-columns: 10rem 4rem 5rem 9rem;
         column-gap: 1rem;
         grid-template-rows: auto;
-        grid-template-areas: 'label label label colour'
+        grid-template-areas: 'label label label color'
         'hour minute minute meridiem'
         'cancel cancel confirm confirm';
     }
@@ -345,7 +372,7 @@ body {
     }
 
     .select-color {
-        grid-area: colour;
+        grid-area: color;
     }
 
     .input-hour {
