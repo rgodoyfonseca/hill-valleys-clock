@@ -138,6 +138,15 @@ body {
     margin-bottom: 1.125rem;
 }
 
+.select-color select {
+    background-image: url(../images/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: 90%;
+    background-size: 1rem;
+
+    -webkit-appearance: none;
+}
+
 .input-minute input {
     margin-bottom: 0;
 }
